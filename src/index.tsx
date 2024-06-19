@@ -1,12 +1,17 @@
 import { render } from 'preact';
 import qs from 'querystring'
 import './style.css';
+import { useState } from 'preact/hooks';
 
 export function App() {
 	const query = qs.parse(window.location.search.replace("?", ""))
 
+	const [angleClass, setAngleClass] = useState("angle-1")
+
 	return (
-		<div class="content">
+		<div class={`content ${angleClass}`} onClick={() => {
+			setAngleClass(angleClass == "angle-1" ? "angle-2" : "angle-1")
+		}}>
 			<div class="header">Good Public Servant</div>
 			<div class="vertical">
 				<p>

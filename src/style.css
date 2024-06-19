@@ -33,7 +33,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	transform: perspective(400px) rotate3d(var(--r, 1, -1, 0), calc(var(--i, 1) * var(--a)));
-	--a: 3deg;
 	-webkit-mask: linear-gradient(135deg,#000c 40%,#000,#000c 60%) 100% 100%/250% 250%;
 	transition: .4s;
 	aspect-ratio: 1;
@@ -49,7 +48,11 @@ body {
     }
 }
 
-.content:hover {
+.angle-1 {
+	--a: 3deg;
+}
+
+.angle-2 {
 	--i: -1;
 }
 
