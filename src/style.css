@@ -1,0 +1,92 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	color: #222;
+	background-color: #ffffff;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	align-items: center;
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+#app {
+	width: 100vh;
+	height: 100vh;
+	padding: 2rem;
+	text-align: center;
+}
+
+.content {
+	padding: 1rem;
+	border-radius: 1rem;
+	background: linear-gradient(to right, red, purple);
+	display: flex;
+	flex-direction: column;
+	transform: perspective(400px) rotate3d(var(--r, 1, -1, 0), calc(var(--i, 1) * var(--a)));
+	--a: 3deg;
+	-webkit-mask: linear-gradient(135deg,#000c 40%,#000,#000c 60%) 100% 100%/250% 250%;
+	transition: .4s;
+	aspect-ratio: 1;
+	animation: flash 1.5s linear infinite;
+}
+
+@keyframes flash {
+    from {
+        -webkit-mask-position: 0 1;
+    }
+    to {
+        -webkit-mask-position: 0 0;
+    }
+}
+
+.content:hover {
+	--i: -1;
+}
+
+
+.header {
+	color: white;
+	margin: 1rem 0 2rem 0;
+}
+
+.footer {
+	font-style: oblique;
+	text-align: right;
+	font-size: 1rem;
+	margin: 2rem 0 1rem 0;
+}
+
+.vertical {
+	height: 22rem;
+	margin: auto;
+}
+
+.vertical p {
+	overflow: hidden;
+    white-space: nowrap;
+    animation: reveal-text 3s steps(6, end); /* 控制动画持续时间和逐字显示步骤 */
+	text-shadow: 0 0 10px #ffffff, 0 0 10px #ffffff, 0 0 10px #ffffff;
+	letter-spacing: 1.5rem;
+	font-weight: bold;
+	font-size: 3rem;
+	writing-mode: vertical-rl;
+}
+
+@keyframes reveal-text {
+    from {
+        height: 0; /* 初始时文字宽度为0，隐藏文字 */
+    }
+    to {
+        height: 100%; /* 结束时显示全部文字 */
+    }
+}
